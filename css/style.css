@@ -1,0 +1,95 @@
+/* Colors
+Light Blue: #5BCEFA · Pink: #F5A9B8 · White: #FFFFFF
+            #8DDCFB
+*/
+
+/* page layout start */
+
+
+.nav-bar {
+  background-color: #5BCEFA;
+  top: 0;
+  width:100%;
+  text-align: center;
+  border: 2px solid #06094a;
+  padding-bottom: .25em;
+}
+.nav-bar-collection {
+  background-color: #8DDCFB;
+  width:100%;
+  text-align: center;
+  border: 2px solid #06094a;
+  border-top:0;
+  margin: 0;
+  padding:.25em 0 .25em 0 ;
+  
+}
+nav p {
+    font-size: x-large;
+    font-weight:bold;
+    padding:0;
+    line-height: 0em;
+}
+body section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.navbar a:hover {
+    background-color: #555
+}
+/* button {
+    background-color: #333;
+    margin: 0;
+    margin-top: 0.5em;
+    padding: .5em;
+    color:#fff;
+    float: left;
+} */
+img {
+  border: 2px solid #000;
+}
+body {
+  background-image: url('/images/Transgender_Pride_flag.svg');
+}
+ul {
+  margin: 0;
+  padding: 0.2em;
+}
+.content {
+  background-color: #FFF;
+  padding: 1rem;
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items:flex-start;
+  justify-content: center;
+  max-width: 75em;
+  line-height: 1.3em;
+
+}
+.content section {
+    background-color: #F5A9B8;
+    border: 2px solid #06094a;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
+    max-width: 22em;
+    min-height: 30em;
+}
+
+/* .ingredients:hover, .directions:hover {
+  transform: scale(1.02);
+} */
+
+
+.page-footer{
+    background-color: #5BCEFA;
+    /* color: white; */
+    text-align:right;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
