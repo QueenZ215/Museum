@@ -30,11 +30,7 @@ nav p {
     padding:0;
     line-height: 0em;
 }
-body section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+
 .navbar a:hover {
     background-color: #555
 }
@@ -67,7 +63,7 @@ ul {
   justify-content: center;
   max-width: 75em;
   line-height: 1.3em;
-
+  margin: 0 auto;
 }
 .content section {
     background-color: #F5A9B8;
