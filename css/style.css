@@ -119,3 +119,26 @@ ul {
     font-size: 0.9rem;
     border-radius: 8px;
 }
+.collection-item {
+    display:flex; 
+    gap:1rem;
+    align-items:flex-start; 
+    padding:1rem; 
+    background:#fff; 
+    border:2px solid #06094a; 
+    border-radius:8px; 
+    box-shadow:4px 4px 10px rgba(0,0,0,.3); 
+  }
+.collection-item + .collection-item { 
+    margin-top:1rem; 
+}
+.collection-item figure {
+    margin:0; 
+  }
+.collection-item .meta { 
+    flex:1; 
+    min-width: 18rem; 
+}
+@media (max-width: 800px) {
+  .collection-item { flex-direction:column; }
+}
