@@ -57,7 +57,7 @@ ul {
   padding: 0.2em;
 }
 .content {
-  background-color: #FFF;
+  /* background-color: #FFF; */
   padding: 1rem;
   box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -80,6 +80,11 @@ ul {
     max-width: 22em;
     min-height: 30em;
 }
+.content .collection-section {
+  max-width: 73em;
+  
+}
+
 
 .content .bio {
     max-width: 70em;

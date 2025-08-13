@@ -9,39 +9,249 @@
     <title>Museum Of Transgender History - Collection</title>
 </head>
 <body>
-        <nav class="nav-bar">
+        <nav aria-label="Main navigation" class="nav-bar">
             <p>Museum Of Transgender History</p>
-            <button onclick="location.href='../index.html'">Home</button>
-            <button onclick="location.href='staff.html'">Staff</button>
-            <button onclick="location.href='collection.html'">Collection</button>
+            <button type="button" onclick="location.href='../index.html'">Home</button>
+            <button type="button" onclick="location.href='staff.html'">Staff</button>
+            <button type="button" onclick="location.href='collection.html'">Collection</button>
         </nav>
-        <nav class="nav-bar-collection">
-            <button onclick="location.href='archeology.html'">Archeology</button>
-            <button onclick="location.href='anthropology.html'">Anthropology</button>
-            <button onclick="location.href='history.html'">History</button>
+        <nav aria-label="Collection section navigation" class="nav-bar-collection">
+            <button type="button" onclick="showSection('archaeology')">Archeology</button>
+            <button type="button" onclick="showSection('anthropology')">Anthropology</button>
+            <button type="button" onclick="showSection('history')">History</button>
         </nav>
         <main class="content">
-            <section>
-                <h1>Museum Of Transgender History - Collection</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper, arcu efficitur dignissim ultrices, neque dolor vehicula dolor, quis egestas risus neque eget orci. Vivamus egestas purus metus, ut pharetra neque dictum vel. Fusce sed nunc vitae libero accumsan bibendum. Curabitur ac augue laoreet, vulputate velit sed, luctus augue. Fusce id est posuere, tristique orci a, semper risus. Aenean convallis nulla ut lacus rhoncus, ut cursus nisl ornare. In hac habitasse platea dictumst. Aenean suscipit, enim vitae rhoncus iaculis, ipsum magna fermentum arcu, interdum aliquet purus enim consectetur ipsum. Vestibulum quis lacus at risus vehicula rhoncus eget a massa. Cras sem nisi, ornare vitae gravida vitae, ullamcorper quis libero. Fusce semper venenatis metus, non finibus turpis sodales accumsan. Cras massa lectus, tincidunt sit amet sem vitae, tincidunt gravida lacus. Suspendisse odio sapien, elementum id aliquam vel, commodo a diam. Etiam dictum metus vitae justo mollis congue eget ut augue. Suspendisse ac nisl tristique, consectetur urna a, laoreet enim.</p>
+            <!-- Archaeology Section -->
+            <section id="archaeology" class="collection-section">
+            <h1>Archaeology</h1>
+            <!--Archaeology Items Start -->
+            <article class="collection-item">
+                <figure>
+                    <img src="../images/collections/Sash.png" alt="Golden sash reading 'Ballroom Volunteer' with embroidered stars and laurel." class="artifact-img" width="300">
+                    <figcaption>Ballroom Sash (Club Volunteer Ribbon)</figcaption>
+                </figure>
 
-            </section>
-            <section>
-                <h2>PH</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper, arcu efficitur dignissim ultrices, neque dolor vehicula dolor, quis egestas risus neque eget orci. Vivamus egestas purus metus, ut pharetra neque dictum vel. Fusce sed nunc vitae libero accumsan bibendum. Curabitur ac augue laoreet, vulputate velit sed, luctus augue. Fusce id est posuere, tristique orci a, semper risus. Aenean convallis nulla ut lacus rhoncus, ut cursus nisl ornare. In hac habitasse platea dictumst. Aenean suscipit, enim vitae rhoncus iaculis, ipsum magna fermentum arcu, interdum aliquet purus enim consectetur ipsum. Vestibulum quis lacus at risus vehicula rhoncus eget a massa. Cras sem nisi, ornare vitae gravida vitae, ullamcorper quis libero. Fusce semper venenatis metus, non finibus turpis sodales accumsan. Cras massa lectus, tincidunt sit amet sem vitae, tincidunt gravida lacus. Suspendisse odio sapien, elementum id aliquam vel, commodo a diam. Etiam dictum metus vitae justo mollis congue eget ut augue. Suspendisse ac nisl tristique, consectetur urna a, laoreet enim.</p>
+                <div class="artifact-details">
+                    <h2>Silk club sash with metallic embroidery</h2>
 
-            </section>
-            <section>
-                <h2>PH</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper, arcu efficitur dignissim ultrices, neque dolor vehicula dolor, quis egestas risus neque eget orci. Vivamus egestas purus metus, ut pharetra neque dictum vel. Fusce sed nunc vitae libero accumsan bibendum. Curabitur ac augue laoreet, vulputate velit sed, luctus augue. Fusce id est posuere, tristique orci a, semper risus. Aenean convallis nulla ut lacus rhoncus, ut cursus nisl ornare. In hac habitasse platea dictumst. Aenean suscipit, enim vitae rhoncus iaculis, ipsum magna fermentum arcu, interdum aliquet purus enim consectetur ipsum. Vestibulum quis lacus at risus vehicula rhoncus eget a massa. Cras sem nisi, ornare vitae gravida vitae, ullamcorper quis libero. Fusce semper venenatis metus, non finibus turpis sodales accumsan. Cras massa lectus, tincidunt sit amet sem vitae, tincidunt gravida lacus. Suspendisse odio sapien, elementum id aliquam vel, commodo a diam. Etiam dictum metus vitae justo mollis congue eget ut augue. Suspendisse ac nisl tristique, consectetur urna a, laoreet enim.</p>
+                    <div class="field-group">
+                        <p><strong>Material:</strong> Silk satin, metallic thread, cotton lining </p>
+                        <p><strong>Size/Weight/Shape:</strong>130 cm length x 10 cm width; ~120 g; flat ribbon with tapered ends </p>
+                        <p><strong>Estimated Age:</strong> Circa 1926-1932 (dated by garment style and thread type)</p>
+                        <p><strong>Preservation State:</strong> Partial fading; minor fraying at edges; embroidery intact</p>
+                        <p><strong>Location Found:</strong> Sub-basement clean-out of former club on W 28th St, Manhattan; storage trunk #4</p>
+                    </div>
 
+                    <div class="field-group">
+                        <p><strong>Use and Function:</strong> Worn as an over-the-shoulder sash for volunteers/hosts at events</p>
+                        <p><strong>Likely Purpose:</strong> Identification and ceremonial adornment at ballroom gatherings</p>
+                        <p><strong>Evidence of Use:</strong> Sweat salts at shoulder zone; makeup residue transfer near collar contact; pin-prick holes from brooches</p>
+                        <p><strong>Manufacture Clues:</strong> Hand-stitched hem; chain-stitch monogram “M.P.”; metallic thread typical of 1920s couture suppliers</p>
+                        <p><strong>Cultural Context (dig notes):</strong> Retrieved with dance card booklets, ticket stubs dated 1929, powder compact</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Found With:</strong> Two paper programs, one enamel brooch back (front missing), ribbon fragments</p>
+                        <p><strong>Burial/Habitat Context:</strong> Dry, closed trunk within climate-stable storage; low insect activity</p>
+                        <p><strong>Symbolism:</strong> Decorative star motifs and laurel suggest honor/role designation</p>
+                        <p><strong>Comparison:</strong> Similar sashes in 1920s club ephemera collections at local archives (construction and monogramming align)</p>
+                    </div>
+                </div>
+            </article>
+            <!-- End Item -->
+            <article class="collection-item">
+                <figure>
+                    <img src="../images/collections/binder.jpg" alt="Beige front-clasp chest binder with hook-and-eye closures." class="artifact-img" width="300">
+                    <figcaption>Hand-Stitched Chest Binder (Late 1990s)</figcaption>
+                </figure>
+
+                <div class="artifact-details">
+                    <h2>Elastic cotton chest binder with hook-and-eye panel</h2>
+
+                    <div class="field-group">
+                        <p><strong>Material:</strong> Cotton-spandex blend; steel hooks/eyes; polyester thread</p>
+                        <p><strong>Size/Weight/Shape:</strong> Tagged “M”; 34 cm torso length; ~180 g; cylindrical wrap with front closure</p>
+                        <p><strong>Estimated Age:</strong> 1996-2001 (fabric label + fastener style)</p>
+                        <p><strong>Preservation State:</strong> Good; elastic relaxation ~15%; light pilling</p>
+                        <p><strong>Location Found:</strong> Donor apartment, Mission District, San Francisco; wardrobe box #2</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Use and Function:</strong> Torso compression garment for chest flattening</p>
+                        <p><strong>Likely Purpose:</strong> Everyday wear under clothing</p>
+                        <p><strong>Evidence of Use:</strong> Stretched stitching at stress points; detergent scent; faint deodorant residue</p>
+                        <p><strong>Manufacture Clues:</strong> Home‑modified: seam ripper marks; added interior placket; uneven stitch length indicates domestic machine</p>
+                        <p><strong>Cultural Context (dig notes):</strong> Donor notes mention community meetups, zine fairs; garment worn to rallies</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Found With:</strong> Safety pins, spare hooks in a tin, photocopied zine on DIY tailoring</p>
+                        <p><strong>Burial/Habitat Context:</strong> Dry indoor storage; no UV exposure indicators</p>
+                        <p><strong>Symbolism:</strong> Affirmation of gender expression via everyday clothing technology</p>
+                        <p><strong>Comparison:</strong> Comparable to late‑90s DIY binders documented in community archives; similar closures and materials</p>
+                    </div>
+                </div>
+            </article>
+            <!-- End Item -->
+            <article class="collection-item">
+                <figure>
+                    <img src="../images/collections/sign.png" alt="Protest sign with bold pink text reading 'Trans Rights Now' on a white background" class="artifact-img" width="300">
+                    <figcaption>Protest Placard “TRANS RIGHTS NOW”</figcaption>
+                </figure>
+
+                <div class="artifact-details">
+                    <h2>Corrugated plastic placard with screen-printed lettering</h2>
+
+                    <div class="field-group">
+                        <p><strong>Material:</strong> PP corrugated board, acrylic ink, pine stake</p>
+                        <p><strong>Size/Weight/Shape:</strong> 56 x 36 cm; thickness 4 mm; ~420 g; rectangular board on 90 cm stake</p>
+                        <p><strong>Estimated Age:</strong> March 2016 (dated by printed rally permit on reverse)</p>
+                        <p><strong>Preservation State:</strong> Very good; corner dent; slight ink abrasion</p>
+                        <p><strong>Location Found:</strong> Donation from DC volunteer; garage storage shelf</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Use and Function:</strong> Handheld signage at public demonstration</p>
+                        <p><strong>Likely Purpose:</strong> Visibility and message communication at rally</p>
+                        <p><strong>Evidence of Use:</strong> Grip wear on stake; mud flecks; tape residue from added flyer</p>
+                        <p><strong>Manufacture Clues:</strong> Single-color screen; alignment marks; off-the-shelf board cut with utility knife</p>
+                        <p><strong>Cultural Context (dig notes):</strong> Recovered after large downtown rally; reverse lists chant cues and media contact</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Found With:</strong> Two buttons, nylon zip ties, rolled poncho</p>
+                        <p><strong>Burial/Habitat Context:</strong> Indoors; temperature fluctuations minimal</p>
+                        <p><strong>Symbolism:</strong> Bold sans-serif, high-contrast color field for legibility in crowds</p>
+                        <p><strong>Comparison:</strong> Typical of mid-2010s protest materials; similar substrates in contemporary collections</p>
+                    </div>
+                </div>
+            </article>
+            <!-- End Item -->
+        </section>
+        <!-- Anthropology Section -->
+        <section id="anthropology" class="collection-section" style="display:none;">
+            <h1>Anthropology</h1>
+            <!-- Template item -->
+            <article class="collection-item">
+                <figure>
+                    <img src="../images/collections/skull.jpg" alt="Partial human skull with intact jawbone and teeth." class="artifact-img" width="300">
+                    <figcaption>Cranial Fragment &amp; Maxillary Segment (10th-11th c.)</figcaption>
+                </figure>
+
+                <div class="artifact-details">
+                    <h2>Cranial vault fragment with partial maxilla</h2>
+
+                    <div class="field-group">
+                        <p><strong>Material:</strong> Human bone</p>
+                        <p><strong>Size/Weight/Shape:</strong> Cranial piece ~9x6 cm; maxilla ~7x4 cm; ~95 g total</p>
+                        <p><strong>Estimated Age:</strong> 10th-11th century CE (stratigraphy + AMS date from associated charcoal: 1015±40 BP)</p>
+                        <p><strong>Preservation State:</strong> Partial; mineral staining; fine root etching; stable surface</p>
+                        <p><strong>Location Found:</strong> Riverside terrace trench B, Layer III, Grid 12C (UTM coords recorded in field book)</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Use and Function:</strong> N/A (anatomical remains)</p>
+                        <p><strong>Likely Purpose:</strong> N/A</p>
+                        <p><strong>Evidence of Use:</strong> N/A</p>
+                        <p><strong>Manufacture Clues:</strong> N/A</p>
+                        <p><strong>Cultural Context (dig notes):</strong> Found adjacent to iron knife, spindle whorl, bead cluster</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Found With:</strong> Three glass beads, small iron knife, ceramic sherds</p>
+                        <p><strong>Burial/Habitat Context:</strong> Inhumation horizon; silty loam with charcoal flecks; groundwater seasonal</p>
+                        <p><strong>Symbolism:</strong> Noted decorative beadwork nearby; no markings on bone</p>
+                        <p><strong>Comparison:</strong> Cranial preservation and bead types consistent with other Layer III burials at site</p>
+                    </div>
+                </div>
+            </article>
+            <!-- End Item -->
+            <article class="collection-item">
+                <figure>
+                    <img src="../images/collections/urn.jpg" alt="Broken ceramic pot fragments arranged with small white stones." class="artifact-img" width="300">
+                    <figcaption>Cremation Urn Fragments with Calcined Bone (18th c. Japan)</figcaption>
+                </figure>
+
+                <div class="artifact-details">
+                    <h2>Ceramic urn sherds with associated calcined bone</h2>
+
+                    <div class="field-group">
+                        <p><strong>Material:</strong> Earthenware ceramic, human bone</p>
+                        <p><strong>Size/Weight/Shape:</strong> 1 rim/base sherds; largest 12x8 cm; bone aggregate ~60 g</p>
+                        <p><strong>Estimated Age:</strong> 18th century (kiln style + thermoluminescence test on ceramic)</p>
+                        <p><strong>Preservation State:</strong> Fragmented; soot on interior; bone calcined (white/blue)</p>
+                        <p><strong>Location Found:</strong> Slope stabilization rescue dig, plot K-7, coastal cemetery margin</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Use and Function:</strong> Container for cremated remains</p>
+                        <p><strong>Likely Purpose:</strong> Funerary containment</p>
+                        <p><strong>Evidence of Use:</strong> Soot residue; interior glaze discoloration</p>
+                        <p><strong>Manufacture Clues:</strong> Hand-thrown; combed exterior banding; iron-rich slip</p>
+                        <p><strong>Cultural Context (dig notes):</strong> Nearby marker base; displaced by erosion; no intact inscription recovered</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Found With:</strong> Pebble offerings, charcoal pockets, fragment of lacquered wood</p>
+                        <p><strong>Burial/Habitat Context:</strong> Sandy loam; salt-spray exposure; active erosion profile</p>
+                        <p><strong>Symbolism:</strong> Decorative banding motifs; placement among other urns suggests formal area</p>
+                        <p><strong>Comparison:</strong> Matches regional urn typologies for period; calcined bone heat signatures typical</p>
+                    </div>
+                </div>
+            </article>
+            <!-- End Item -->
+            <article class="collection-item">
+                <figure>
+                    <img src="../images/collections/skin.png" alt="Fragment of textured brown material painted with alternating blue and red stripes." class="artifact-img" width="300">
+                    <figcaption>Dermal Patch with Pigment Residue (19th c. Andes, mummified context)</figcaption>
+                </figure>
+
+                <div class="artifact-details">
+                    <h2>Mummified skin patch with embedded pigment</h2>
+
+                    <div class="field-group">
+                        <p><strong>Material:</strong> Human dermal tissue; mineral/organic pigment traces</p>
+                        <p><strong>Size/Weight/Shape:</strong> 5x4 cm; &lsaquo;10 g; irregular</p>
+                        <p><strong>Estimated Age:</strong> Mid-19th century (contextual textile dates + collagen AMS: 160±30 BP)</p>
+                        <p><strong>Preservation State:</strong> Desiccated; micro-fissures; stable under low RH</p>
+                        <p><strong>Location Found:</strong> Rock-shelter bundle cache, Shelf 2, Unit D3, elevation log recorded</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Use and Function:</strong> N/A (tissue)</p>
+                        <p><strong>Likely Purpose:</strong> N/A</p>
+                        <p><strong>Evidence of Use:</strong> Pigment particulates aligned in repeating lines; no tool marks observed</p>
+                        <p><strong>Manufacture Clues:</strong> N/A</p>
+                        <p><strong>Cultural Context (dig notes):</strong> Found with dyed camelid textile strips and copper beadwork</p>
+                    </div>
+
+                    <div class="field-group">
+                        <p><strong>Found With:</strong> Textile cords, copper beads, plant fiber ties</p>
+                        <p><strong>Burial/Habitat Context:</strong> Low humidity rock-shelter; minimal insect activity; constant shade</p>
+                        <p><strong>Symbolism:</strong> Linear pigment pattern noted; motif catalog pending</p>
+                        <p><strong>Comparison:</strong> Comparable preservation to nearby bundles; pigment spectrum aligns with ochre/indigo mixes from site</p>
+                    </div>
+                </div>
+            </article>
+            <!-- End Item -->
             </section>
-            
+            <!-- History Section -->
+            <section id="history" class="collection-section" style="display:none;">
+                <h1>History</h1>
+                <p>Interpretive content coming in Phase 4.</p>
+        </section>
+
         </main>
         <footer class="page-footer">
                 <hr>
                 <p>This is a fictitious website created purely for academic purposes. <a href="https://www.bellevuecollege.edu/">Bellevue College</a></p>
                 <p>The content on this site was conceived by a human and created using AI tools. All text and images were generated or enhanced with AI and were curated, edited, and contextualized by a human author.</p>
             </footer>
+            <script>
+            function showSection(section) {
+                document.querySelectorAll('.collection-section').forEach(s => s.style.display = 'none');
+                document.getElementById(section).style.display = 'block';
+            }
+    </script>
 </body>
 </html>
