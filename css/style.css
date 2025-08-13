@@ -82,6 +82,22 @@ ul {
 }
 .content .collection-section {
   max-width: 73em;
+}
+#feature-marsha {
+  max-width: 73em;
+}
+.feature {
+  float:left;
+  margin: 0 1rem 1rem 0;
+  max-width: 250px;
+}
+.feature img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.feature figcaption {
+  font-size: 0.8em;
   
 }
 
