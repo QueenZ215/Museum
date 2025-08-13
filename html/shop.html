@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Zo&#235; Coolbaugh">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Of Transgender History - Collection</title>
+</head>
+<body>
+        <nav aria-label="Main navigation" class="nav-bar">
+            <p>Museum Of Transgender History</p>
+            <button type="button" onclick="location.href='../index.html'">Home</button>
+            <button type="button" onclick="location.href='staff.html'">Staff</button>
+            <button type="button" onclick="location.href='collection.html'">Collection</button>
+            <button type="button" onclick="location.href='shop.html'">Merch</button>
+        </nav>
+        <nav aria-label="Shop section navigation" class="nav-bar-collection">
+            <button type="button" onclick="showSection('flags')">Flags</button>
+            <button type="button" onclick="showSection('stuffed')">Stuffies</button>
+            <button type="button" onclick="showSection('socks')">Programer Socks</button>
+        </nav>
+        <main class="content">
+            <header class="shop-header">
+                <h1>Souvenir Shop</h1>
+                <p class="ai-note">All products are fictional for academic use. Images and text may be AI-assisted and curated by a human.</p>
+            </header>
+            <div class="shop-container">
+                <div class="stuffed" data-id="item005">
+                    <img src="../images/collections/blahaj.png" alt="Two plush shark toys, one large and one small, lying side by side on a tiled floor." title="“Hug a shark, fear no bite.”" onclick="openModal(this)">
+                    <h3>Shark Plush Set (Large &amp; Small)</h3>
+                    <p>From the Collections: Polyester fiber fill; inspired by ocean conservation and queer community mascots. Perfect for comfort, display, or safe shark hugs.</p>
+                    <p class="price">Price: $35.00</p>
+                    <button type="button" aria-label="Add Shark Plush Set to cart" onclick="addToCart('item005','BL&Aring;HAJ Set')">Add BL&Aring;HAJ Set to Cart</button>
+                </div>
+                <div class="socks" data-id="item002">
+                    <img src="../images/programmersocks.png" alt="Over-the-knee socks in the trans pride colors: blue, pink, and white horizontal stripes" title="Keep your code queer and your feet cozy" onclick="openModal(this)">
+                    <h3>Programmer Socks - Trans Pride Edition</h3>
+                    <p>Show off your pride while staying cozy at your desk or on the go. These over-the-knee socks feature the trans pride flag colors—blue, pink, and white—in bold horizontal stripes. Perfect for coding marathons or stylish lounging.</p>
+                    <p><strong>Price:</strong> $12.99</p>
+                    <button type="button" onclick="addToCart('item002')">Add Programmer Socks to Cart</button>
+                </div>
+                <div class="souvenir-item" data-id="item003">
+                    <img src="images/tflag.png" alt="Trans pride flag with blue, pink, and white stripes hanging from a porch flagpole" title="Fly your colors high" onclick="openModal(this)">
+                    <h3>Trans Pride Flag</h3>
+                    <p>Celebrate visibility and pride with this durable outdoor trans pride flag. Features the iconic blue, pink, and white stripes, perfect for flying outside your home, office, or community center.</p>
+                    <p><strong>Price:</strong> $18.99</p>
+                    <button type="button" onclick="addToCart('item003')">Add Trans Pride Flag to Cart</button>
+                </div>
+            </div>
+
+
+        </main>
+        <footer class="page-footer">
+                <hr>
+                <p>This is a fictitious website created purely for academic purposes. <a href="https://www.bellevuecollege.edu/">Bellevue College</a></p>
+                <p>The content on this site was conceived by a human and created using AI tools. All text and images were generated or enhanced with AI and were curated, edited, and contextualized by a human author.</p>
+            </footer>
+            <script>
+            function showSection(section) {
+                document.querySelectorAll('.collection-section').forEach(s => s.style.display = 'none');
+                document.getElementById(section).style.display = 'block';
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Museum Souvenir Shop</title>
+  <style>
+       .shop-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 20px;
+    }
+
+    .souvenir-item {
+      width: 250px;
+      background-color: #ffffff;
+      border: 2px solid #222;
+      padding: 10px;
+      border-radius: 6px;
+      position: relative;
+    }
+
+    .souvenir-item img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .souvenir-item input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .souvenir-item button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 8px;
+      font-weight: bold;
+      background-color: #30336b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .souvenir-item button:hover {
+      background-color: #130f40;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: 10% auto;
+      padding: 20px;
+      background-color: #fff;
+      width: 60%;
+      border-radius: 8px;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+    }
+
+    .close-modal {
+      float: right;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Souvenir Shop</h1>
+  </header>
+
+  <div class="shop-container">
+
+    <!-- BEGIN SINGLE ITEM BLOCK-->
+    <div class="souvenir-item" data-id="item001">
+      <img src="" alt="" onclick="openModal(this)" />
+      <h3>Listing Title</h3>
+      <p>Listing Description</p>
+      <p><strong>Price:</strong> $00.00</p>
+      <button onclick="addToCart('item001')">Add [Replace with Item Name] to Cart</button>
+    </div>
+    <!-- END SINGLE ITEM BLOCK -->
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img id="modal-image" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    function addToCart(itemId) {
+      alert("Added " + itemId + " to cart (functionality to come)");
+      // Future: Push to cart array
+    }
+
+    function openModal(imgElement) {
+      const modal = document.getElementById("modal");
+      const modalImage = document.getElementById("modal-image");
+      modalImage.src = imgElement.src;
+      modalImage.alt = imgElement.alt;
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Optional: Close modal on outside click
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
