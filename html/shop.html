@@ -27,41 +27,105 @@
                 <p class="ai-note">All products are fictional for academic use. Images and text may be AI-assisted and curated by a human.</p>
             </header>
             <div class="shop-container">
-                <div class="stuffed" data-id="item005">
-                    <img src="../images/collections/blahaj.png" alt="Two plush shark toys, one large and one small, lying side by side on a tiled floor." title="“Hug a shark, fear no bite.”" onclick="openModal(this)">
-                    <h3>Shark Plush Set (Large &amp; Small)</h3>
+                <div class="stuffed item-card" data-id="item001" data-name="BLÅHAJ Plush Set" data-price="$35.00" data-desc="Polyester plush sharks in two sizes—comfort buddies inspired by community mascots." data-img="../images/shop/blahaj.png" data-alt="Two plush shark toys, one large and one small, lying side by side on a tiled floor." onclick="openModalFromCard(this)">
+                    <img src="../images/shop/blahaj.png" alt="Two plush shark toys, one large and one small" title="Hug a shark, fear no bite." width="150">
+                    <h3>BLÅHAJ Plush Set</h3>
                     <p>From the Collections: Polyester fiber fill; inspired by ocean conservation and queer community mascots. Perfect for comfort, display, or safe shark hugs.</p>
-                    <p class="price">Price: $35.00</p>
-                    <button type="button" aria-label="Add Shark Plush Set to cart" onclick="addToCart('item005','BL&Aring;HAJ Set')">Add BL&Aring;HAJ Set to Cart</button>
+                    <p><strong>Price:</strong> $35.00</p>
+                    <button type="button" onclick="event.stopPropagation(); addToCart('item001','BLÅHAJ Plush Set')">Add BLÅHAJ Plush Set to Cart</button>
                 </div>
-                <div class="socks" data-id="item002">
-                    <img src="../images/programmersocks.png" alt="Over-the-knee socks in the trans pride colors: blue, pink, and white horizontal stripes" title="Keep your code queer and your feet cozy" onclick="openModal(this)">
+                <div class="socks item-card" data-id="item002"data-name="Programmer Socks - Trans Pride Edition" data-price="$12.99" data-desc="Show off your pride while staying cozy at your desk or on the go. These over-the-knee socks feature the trans pride flag colors—blue, pink, and white—in bold horizontal stripes. Perfect for coding marathons or stylish lounging." data-img="../images/shop/programmersocks.png" data-alt="Over-the-knee socks in the trans pride colors: blue, pink, and white horizontal stripes" onclick="openModalFromCard(this)">
+                    <img src="../images/shop/programmersocks.png" alt="Over-the-knee socks in the trans pride colors: blue, pink, and white horizontal stripes" title="Keep your code queer and your feet cozy" width="150">
                     <h3>Programmer Socks - Trans Pride Edition</h3>
                     <p>Show off your pride while staying cozy at your desk or on the go. These over-the-knee socks feature the trans pride flag colors—blue, pink, and white—in bold horizontal stripes. Perfect for coding marathons or stylish lounging.</p>
                     <p><strong>Price:</strong> $12.99</p>
-                    <button type="button" onclick="addToCart('item002')">Add Programmer Socks to Cart</button>
+                    <button type="button" onclick="event.stopPropagation(); addToCart('item002','Programmer Socks - Trans Pride Edition')">Add Programmer Socks to Cart</button>
                 </div>
-                <div class="souvenir-item" data-id="item003">
-                    <img src="images/tflag.png" alt="Trans pride flag with blue, pink, and white stripes hanging from a porch flagpole" title="Fly your colors high" onclick="openModal(this)">
+                <div class="souvenir-item item-card" data-id="item003" data-name="Trans Pride Flag" data-price="$18.99" data-desc="Celebrate visibility and pride with this durable outdoor trans pride flag. Features the iconic blue, pink, and white stripes, perfect for flying outside your home, office, or community center." data-img="../images/shop/tflag.png" data-alt="Trans pride flag with blue, pink, and white stripes hanging from a porch flagpole" onclick="openModalFromCard(this)">
+                    <img src="../images/shop/tflag.png" alt="Trans pride flag with blue, pink, and white stripes hanging from a porch flagpole" title="Fly your colors high" width="150">
                     <h3>Trans Pride Flag</h3>
                     <p>Celebrate visibility and pride with this durable outdoor trans pride flag. Features the iconic blue, pink, and white stripes, perfect for flying outside your home, office, or community center.</p>
                     <p><strong>Price:</strong> $18.99</p>
-                    <button type="button" onclick="addToCart('item003')">Add Trans Pride Flag to Cart</button>
+                    <button type="button" onclick="event.stopPropagation(); addToCart('item003','Trans Pride Flag')">Add Trans Pride Flag to Cart</button>
+                </div>
+                <div class="souvenir-item item-card" data-id="item004" data-name="Trans Pride Cat Ear Beanie" data-img="../images/shop/catearbennie.png" data-alt="Black fleece Beanie with colorful cat ears in trans and pan pride flag colors"data-price="$22.99" data-desc="Stay warm and stylish with this handmade fleece beanie featuring adorable cat ears in trans and pan pride flag colors. Perfect for pride events, everyday wear, or gifting to a fellow cat-eared cutie." onclick="openModalFromCard(this)">
+                    <figure><img src="../images/shop/catearbennie.png" alt="Black fleece Beanie with colorful cat ears in trans and pan pride flag colors" title="Show your pride with cozy cat ears" width="150">
+                        <figcaption>
+                        Trans Pride Cat Ear Beanie <a href="https://www.etsy.com/listing/1083679199/full-size-mix-and-match-cat-ear-fleece" target="_blank">source</a>
+                    </figcaption>
+                    </figure>
+                    <h3>Trans Pride Cat Ear Beanie</h3>
+                    <p>Stay warm and stylish with this handmade fleece beanie featuring adorable cat ears in trans and pan pride flag colors. Perfect for pride events, everyday wear, or gifting to a fellow cat-eared cutie.</p>
+                    <p><strong>Price:</strong> $22.99</p>
+                    <button type="button" onclick="event.stopPropagation(); addToCart('item004','Trans Pride Cat Ear Beanie')">Add Cat Ear Beanie to Cart</button>
+                </div>
                 </div>
             </div>
-
-
         </main>
+        
         <footer class="page-footer">
                 <hr>
                 <p>This is a fictitious website created purely for academic purposes. <a href="https://www.bellevuecollege.edu/">Bellevue College</a></p>
                 <p>The content on this site was conceived by a human and created using AI tools. All text and images were generated or enhanced with AI and were curated, edited, and contextualized by a human author.</p>
             </footer>
+
+
+                <!-- Reusable Image/Product Modal -->
+                 <div class="shop-modal" id="shop-modal" role="dialog" aria-modal="true" aria-labelledby="shop-modal-title" aria-hidden="true">
+                    <div class="shop-modal-content" tabindex="-1">
+                        <button class="shop-modal__close" type="button" aria-label="Close preview" onclick="closeModal()">×</button>
+                        <h2 id="shop-modal-title">Preview</h2>
+                        <img id="shop-modal-image" src="" alt="" width="300">
+                        <p id="shop-modal-desc"></p>
+                        <p class="price" id="shop-modal-price"></p>
+                        <button id="shop-modal-add" type="button">Add to Cart</button>
+                    </div>
             <script>
             function showSection(section) {
                 document.querySelectorAll('.collection-section').forEach(s => s.style.display = 'none');
                 document.getElementById(section).style.display = 'block';
             }
-    </script>
+            let _lastFocus = null;
+            function openModalFromCard(cardEl){
+                _lastFocus = document.activeElement;
+                const modal = document.getElementById('shop-modal');
+                const img   = document.getElementById('shop-modal-image');
+                const title = document.getElementById('shop-modal-title');
+                const desc  = document.getElementById('shop-modal-desc');
+                const price = document.getElementById('shop-modal-price');
+                const add   = document.getElementById('shop-modal-add');
+                // Pull data from the card
+                const name  = cardEl.dataset.name  || 'Preview';
+                const src   = cardEl.dataset.img   || '';
+                const alt   = cardEl.dataset.alt   || '';
+                const text  = cardEl.dataset.desc  || '';
+                const cost  = cardEl.dataset.price || '';
+                const id    = cardEl.dataset.id    || '';
+
+                title.textContent = name;
+                img.src = src; img.alt = alt;
+                desc.textContent = text;
+                price.textContent = cost ? `Price: ${cost}` : '';
+                add.textContent = `Add ${name} to Cart`;
+                add.onclick = () => addToCart(id, name);
+                modal.setAttribute('aria-hidden','false');
+                document.querySelector('.shop-modal__content').focus();
+                // close on overlay click + Esc
+                modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+                window.addEventListener('keydown', escClose);
+            }
+            function escClose(e){ if(e.key === 'Escape') closeModal(); }
+            function closeModal(){
+                const modal = document.getElementById('shop-modal');
+                modal.setAttribute('aria-hidden','true');
+                window.removeEventListener('keydown', escClose);
+                if (_lastFocus) _lastFocus.focus();
+            }
+            // Your existing stub
+            function addToCart(id, name){
+                alert(`Added “${name || id}” to cart — functionality coming in Phase 2.`);
+            }
+            
+</script>
 </body>
 </html>
