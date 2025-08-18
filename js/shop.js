@@ -43,7 +43,7 @@
         <h3>${i.name}</h3>
         <p>${i.desc}</p>
         <p class="price"><strong>Price:</strong> ${usd.format(i.price)}</p>
-        <button type="button">Add ${i.name} to Cart</button>
+        <button onclick="addToCart(this)" data-id=${i.id} data-name=${i.name} data-price=${i.price} data-image=${i.img}> ${i.name} </button>
       `;
 
       // Prevent button click from opening modal; wire addToCart
