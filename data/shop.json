@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "item005",
+      "name": "BLÅHAJ Plush Set (Large & Small)",
+      "category": "stuffed",
+      "price": 35.00,
+      "img": "../images/shop/blahaj.png",
+      "alt": "Two plush shark toys, one large and one small, lying side by side on a tiled floor.",
+      "tooltip": "Hug a shark, fear no bite.",
+      "desc": "Polyester plush sharks in two sizes—comfort buddies inspired by community mascots."
+    },
+    {
+      "id": "item002",
+      "name": "Programmer Socks – Trans Pride Edition",
+      "category": "socks",
+      "price": 12.99,
+      "img": "../images/shop/programmersocks.png",
+      "alt": "Over-the-knee socks in the trans pride colors: blue, pink, and white horizontal stripes.",
+      "tooltip": "Keep your code queer and your feet cozy.",
+      "desc": "Over-the-knee socks featuring the trans pride flag colors for coding marathons or stylish lounging."
+    },
+    {
+      "id": "item003",
+      "name": "Trans Pride Flag",
+      "category": "flags",
+      "price": 18.99,
+      "img": "../images/shop/tflag.png",
+      "alt": "Trans pride flag with blue, pink, and white stripes hanging from a porch flagpole.",
+      "tooltip": "Fly your colors high.",
+      "desc": "Durable outdoor trans pride flag—perfect for home, office, or community spaces."
+    },
+    {
+      "id": "item004",
+      "name": "Trans Pride Cat Ear Beanie",
+      "category": "hat",
+      "price": 22.99,
+      "img": "../images/shop/catearbennie.png",
+      "alt": "Black fleece beanie with colorful cat ears in trans and pan pride flag colors.",
+      "tooltip": "Show your pride with cozy cat ears.",
+      "desc": "Handmade fleece beanie with pride-colored ears—warm, cute, and perfect for events."
+    }
+  ]
+}
