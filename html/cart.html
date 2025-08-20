@@ -25,19 +25,16 @@
             <button type="button" data-filter="socks">Programmer Socks</button>
             <button type="button" data-filter="hats">Hats</button>
         </nav>
-        <main class="content shop-page">
-            <header class="shop-header">
-                <h1>Souvenir Shop</h1>
-                <p class="ai-note">All products are fictional for academic use. Images and text may be AI-assisted and curated by a human.</p>
-            </header>
-
-            <div id="shop-container" class="shop-container" aria-live="polite"></div>
-            </main> 
+        <main class="content">
+            <div class="cart-wrap" id="cart-root">
+            <!-- render() will inject the entire cart UI here -->
+            </div>
+        </main>
         <footer class="page-footer">
                 <hr>
                 <p>This is a fictitious website created purely for academic purposes. <a href="https://www.bellevuecollege.edu/">Bellevue College</a></p>
                 <p>The content on this site was conceived by a human and created using AI tools. All text and images were generated or enhanced with AI and were curated, edited, and contextualized by a human author.</p>
-            </footer>
+        </footer>
             <div id="shop-modal" class="shop-modal" role="dialog" aria-modal="true" aria-labelledby="shop-modal-title" aria-hidden="true">
                 <div class="shop-modal__panel" tabindex="-1">
                     <button class="shop-modal__close" type="button" aria-label="Close" onclick="closeModal()">x</button>
