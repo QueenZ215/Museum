@@ -5,21 +5,52 @@ const usd = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'})
 let shopData = [];
 let currentFilter = 'all';
 
+// Cart varables
+const TAX_RATE = 0.102;
+const MEMBER_RATE = 0.15;
+const SHIPPING_RATE = 25.00;
+const VOLUME_TIERS = [
+    {min:   0.00, max:   49.99, rate: 0.00 },
+    {min:  50.00, max:   99.99, rate: 0.05 },
+    {min: 100.00, max:  199.99, rate: 0.10 },
+    {min: 200.00, max: Infinity, rate: 0.15 }
+];
+const DISCOUNT_PREF = 'mtghDiscountPref';
+const fmt = (n) => { 
+    const v = Math.abs(n); 
+    const f = usd.format(v); 
+    return n < 0 ? `(${f})` : f; };
+
 function readCart() {
 try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
 catch { return []; }
 }
 
 function writeCart(cart) {
+    localStorage.setItem(CART_KEY, JSON,stringify(cart));
+}
+
+function renderShop() {
+    const wrap = document.getElementById('shop-container');
+    if (!wrap) return;
+
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
-document.addEventListener('DOMContentLoaded', initShop);
+
+// this script being used for two pages checks which Dom content shold be loaded. using if rather then if/else makes it more expandable.
+document.addEventListener('DOMContentLoaded', () => {
+    const onShop = !!document.getElementById('shop-container');
+    const onCart = !!document.getElementById('cart-root');
+    if (onShop) initShop();
+    if (onCart) initCart();
+});
 
 async function initShop() {
     wireFilters();
     await loadData();
     renderShop();
 }
+
 
 async function loadData() {
     const db = await fetch(DATA_URL);
@@ -29,9 +60,10 @@ async function loadData() {
 }
 
 function wireFilters() {
-    document.querySelectorAll('.nav-bar-collection [data-filter]').forEach(btn => {
+    const buttons = document.querySelectorAll('.nav-bar-collection [data-filter]');
+    buttons.forEach((btn) => {
         btn.addEventListener('click', () => {
-            currentFilter = btn.CDATA_SECTION_NODE.filter || 'all';
+            currentFilter = btn.dataset.filter || 'all';
             renderShop();
         });
     });
@@ -164,4 +196,127 @@ function addToCart(btm) {
 }
 function escapeHTML(s='') {
     return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// Cart Functions
+function initCart() {
+    renderCart();
+}
+
+function renderCart() {
+    const root = document.getElementById('cart-root');
+    let cart = readCart().filter(it => Number(it.unitPrice) > 0);
+    writeCart(cart);
+
+    // empty cart;
+    if (cart.length === 0) {
+        root.innerHTML = `
+        <div class="cart-actions">
+            <div class="left">
+                <button class="btn" onclick="location.href='shop.html'">Keep Shoping</button>
+            </div>
+            <div class="right">
+                <lable><input type="checkbox" id="memberFlag"> Museum Member (15% off)</label>
+            </div>
+        </div>
+        <div class="empty">Your cart is empty.</div>
+        `;
+        const memberFlag = document.querySelector('#memberFlag');
+        memberFlag.checked = localStorage.getItem('museumMemberFlag') === '1';
+        memberFlag.addEventListener('change', () => {
+            localStorage.setItem('museumMemberFlag', memberFlag.checked ? '1' : '0');
+            renderCart();
+        });
+        return;
+    }
+
+    // subtotal
+    let itemTotal = 0;
+    for (const it of cart) itemTotal += Number(it.unutPrice) * Number(it.qty || 0);
+
+    // Volume discount
+    let volumeRate = 0;
+    for (const t of VOLUME_TIERS) {
+        if (itemTotal >= t.min && itemTotal <= t.max) { volumeRate = t.rate; break;}
+    }
+    let volumeDiscount = ItemTotal * volumeRate;
+
+    // Member discount
+    const memberChecked = (localStorage.getItem('museumMemberFlag') === '1');
+    let memberDiscount = memberChecked? itemTotal * MEMBER_RATE : 0;
+
+    // single discount rule
+    let applied = 'none';
+    if (memberDiscount > 0 && volumeDiscount > 0) {
+        const pref = localStorage.getItem(DISCOUNT_PREF);
+        if (pref === 'member' || pref === 'volume') {
+            applied = pref;
+        } else {
+            const choice = confirm(
+                `Both discounts are available:\n\nMember: ${Math.round(MEMBER_DISCOUNT_RATE*100)}%\nVolume: ${Math.round(volumeRate*100)}%\n\nOK = Member, Cancel = Volume`   
+            );
+            applied = choice ? 'member' : 'volume';
+            localStorage.setItem(DISCOUNT_PREF, applied);
+        }
+    } else if (memberDiscount > 0) applied = 'member';
+    else if (volumeDiscount > 0) applied = 'volume';
+
+    if (applied === 'member') volumeDiscount = 0;
+    if (applied === 'volume') memberDiscount = 0;
+
+    // Shipping and handeling 
+    const shipping = cart.length ? SHIPPING_RATE : 0;
+    const taxableSubtotal = itemTotal - memberDiscount - volumeDiscount + shipping;
+    const taxAmount = taxableSubtotal * TAX_RATE;
+    const invoiceTotal = taxableSubtotal + taxAmount ;
+
+    // Rows
+    let rows = '';
+    for (const it of cart) {
+        const line = Number(it.unitPrice) * Number(it.qty || 0);
+        rows += `
+            <tr>
+                <td style="width72px"><img class="thumb" src="${it.image || '../images/shop/placeholder.png'}" alt="${(it.name || 'Item') + ' thumbnail'}"></td>
+                <td><strong>${it.name}</strong><br><span class="muted">Unit: ${fmt(Number(it.unitPrice))}</span></td>
+                <td class="num">${Number(it.qty || 0)}</td>
+                <td class="num">${fmt(line)}</td>
+                <td class="num"><button class="btn secondary" data-remove="${it.id}">Remove</button></td>
+            </tr>
+            `;        
+    }
+
+    // Inject UI
+    root.innerHTML = `
+        <div class="cart-actions">
+            <div class="left>
+                <button class="btn" onclick="location.href='shop.html'">Keep Shoping</button>
+                <button class="btn secondary" id="clearCartBtn">Clear Cart</button>
+            </div>
+            <div class="right">
+                <lable><input type="checkbox" id="memberFlag"> Musum Member (15% off)</label>
+                <button class="btn secondary" id="resetDiscountPrefBtn" title="Choose discount again">Reset Discount Choice</button>
+            </div>
+        </div>
+        
+        <table class="cart" aria-describedby="cartSummart">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Description</th>
+                    <th scope="col" class="num">Qty</th>
+                    <th scope="col" class="num">Amount</th>
+                    <th scope="col" class="num">Actions</th>
+                </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+        </table>
+        
+        <div class="summary" id="cartSummary">
+            <div class="row"><span>Items Subtotal</span><span class="num">${fmt(itemTotal)}
+            <div class="row"><span>Volume Discount</span><span class="num">${fmt(-volumeDiscount)}
+            <div class="row"><span>Member Discount</span><span class="num">${fmt(-MemberDiscount)}
+            <div class="row"><span>Shipping</span><span class="num">${fmt(shipping)}
+            <div class="row"><span>Subtotal (Taxable)</span><span class="num">
+            <div class="row"><span>Tax ${(TAX_RATE*100).toFixed(1)}%</span>
+            <div class="row total"><span>Incoice Total</span>`
 }

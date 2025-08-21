@@ -266,3 +266,10 @@ ul {
   object-fit:cover;
   border-radius:6px;
 }
+
+.item-card:hover {
+  transform: scale(1.02);
+}
+ .item-card {
+  transition: transform 0.2s ease;
+}
