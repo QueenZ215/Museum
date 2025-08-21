@@ -270,6 +270,37 @@ ul {
 .item-card:hover {
   transform: scale(1.02);
 }
- .item-card {
+.item-card {
   transition: transform 0.2s ease;
+}
+
+/* Cart thumbnails */
+.cart .thumb {
+  width: 64px;       
+  height: 64px;      
+  object-fit: contain;  
+  display: block;
+  border-radius: 4px;  
+}
+
+/* Optional: keep the cell itself tight */
+.cart-table td:first-child {
+  width: 72px;     
+  padding: 4px 8px;
+}
+
+
+.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums ;
+  padding-right: 0.5em;
+}
+.right {
+  text-align: right;
+  font-weight: bold; 
+}
+
+.left {
+  text-align: left;
+  font-weight: bold; 
 }

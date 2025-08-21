@@ -27,7 +27,7 @@ catch { return []; }
 }
 
 function writeCart(cart) {
-    localStorage.setItem(CART_KEY, JSON,stringify(cart));
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
 function renderShop() {
@@ -118,8 +118,8 @@ function cardHTML(i) {
         <button type="button" data-role="add"
             data-id="${i.id}"
             data-name="${escapeHTML(i.name)}"
-            data-  ="${i.price}"
-            data-  ="${i.img}">
+            data-price="${i.price}"
+            data-image="${i.img}">
             Add ${escapeHTML(i.name)} to Cart
         </button>
         </div>
@@ -166,13 +166,14 @@ function escClose(Z) {
     if (Z.key === 'Escape') closeModal();
 }
 
-function addToCart(btm) {
+function addToCart(btn) {
+    console.log('addToCart dataset:', btn && btn.dataset);
     const id = btn.dataset.id;
     const name = btn.dataset.name;
     const unitPrice = Number(btn.dataset.price);
     const image = btn.dataset.image;
 
-    if (!id || !name || !Number.isFinite(unitePrice)) {
+    if (!id || !name || !Number.isFinite(unitPrice)) {
         alert('Item missing Pricing data.');
         return;
     }
@@ -232,14 +233,14 @@ function renderCart() {
 
     // subtotal
     let itemTotal = 0;
-    for (const it of cart) itemTotal += Number(it.unutPrice) * Number(it.qty || 0);
+    for (const it of cart) itemTotal += Number(it.unitPrice) * Number(it.qty || 0);
 
     // Volume discount
     let volumeRate = 0;
     for (const t of VOLUME_TIERS) {
         if (itemTotal >= t.min && itemTotal <= t.max) { volumeRate = t.rate; break;}
     }
-    let volumeDiscount = ItemTotal * volumeRate;
+    let volumeDiscount = itemTotal * volumeRate;
 
     // Member discount
     const memberChecked = (localStorage.getItem('museumMemberFlag') === '1');
@@ -276,7 +277,7 @@ function renderCart() {
         const line = Number(it.unitPrice) * Number(it.qty || 0);
         rows += `
             <tr>
-                <td style="width72px"><img class="thumb" src="${it.image || '../images/shop/placeholder.png'}" alt="${(it.name || 'Item') + ' thumbnail'}"></td>
+                <td style="width:72px;"><img class="thumb" src="${it.image || '../images/shop/placeholder.png'}" alt="${(it.name || 'Item') + ' thumbnail'}"></td>
                 <td><strong>${it.name}</strong><br><span class="muted">Unit: ${fmt(Number(it.unitPrice))}</span></td>
                 <td class="num">${Number(it.qty || 0)}</td>
                 <td class="num">${fmt(line)}</td>
@@ -312,11 +313,35 @@ function renderCart() {
         </table>
         
         <div class="summary" id="cartSummary">
-            <div class="row"><span>Items Subtotal</span><span class="num">${fmt(itemTotal)}
-            <div class="row"><span>Volume Discount</span><span class="num">${fmt(-volumeDiscount)}
-            <div class="row"><span>Member Discount</span><span class="num">${fmt(-MemberDiscount)}
-            <div class="row"><span>Shipping</span><span class="num">${fmt(shipping)}
-            <div class="row"><span>Subtotal (Taxable)</span><span class="num">
-            <div class="row"><span>Tax ${(TAX_RATE*100).toFixed(1)}%</span>
-            <div class="row total"><span>Incoice Total</span>`
-}
+            <div class="row"><span>Item Subtotal: </span><span class="num">${fmt(itemTotal)}</span></div>
+            <div class="row"><span>Volume Discount: </span><span class="num">${fmt(-volumeDiscount)}</span></div>
+            <div class="row"><span>Member Discount: </span><span class="num">${fmt(-memberDiscount)}</span></div>
+            <div class="row"><span>Shipping: </span><span class="num">${fmt(shipping)}</span></div>
+            <div class="row"><span>Subtotal (Taxable): </span><span class="num">${fmt(taxableSubtotal)}</span></div>
+            <div class="row"><span>Tax ${(TAX_RATE*100).toFixed(1)}%: </span><span class="num">${fmt(taxAmount)}</span></div>
+            <div class="row total"><span>Incoice Total: </span><span class="num">${fmt(invoiceTotal)}</span></div>
+        </div>`;
+    document.getElementById('memberFlag').checked = memberChecked;
+    document.getElementById('memberFlag').addEventListener('change', (z) => {
+        localStorage.setItem('museumMemberFlag', z.target.chacked ? '1' : '0');
+        localStorage.removeItem(DISCOUNT_PREF);
+        renderCart();
+    });
+    document.getElementById('ckearCartBtn').addEventListener('click', () => {
+        if (confirm('Clear all items from cart?')) { writeCart([]); renderCart(); }
+    });
+
+    document.getElementById('resetDiscountPrefBtn').addEventListener('click', () => {
+        localStorage.removeItem(DISCOUNT_PREF);
+        alert('Discount choice reset. If both discounts apply, you will be prompted again.');
+    });
+
+    document.querySelectorAll('[data-remove]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-remove');
+            cart = readCart().filter(it => it.id !== id);
+            writeCart(cart);
+            renderCart();
+        });
+    });
+} 
