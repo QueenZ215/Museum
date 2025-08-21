@@ -254,7 +254,7 @@ function renderCart() {
             applied = pref;
         } else {
             const choice = confirm(
-                `Both discounts are available:\n\nMember: ${Math.round(MEMBER_DISCOUNT_RATE*100)}%\nVolume: ${Math.round(volumeRate*100)}%\n\nOK = Member, Cancel = Volume`   
+                `Both discounts are available:\n\nMember: ${Math.round(MEMBER_RATE*100)}%\nVolume: ${Math.round(volumeRate*100)}%\n\nOK = Member, Cancel = Volume`   
             );
             applied = choice ? 'member' : 'volume';
             localStorage.setItem(DISCOUNT_PREF, applied);
@@ -289,17 +289,17 @@ function renderCart() {
     // Inject UI
     root.innerHTML = `
         <div class="cart-actions">
-            <div class="left>
+            <div class="left">
                 <button class="btn" onclick="location.href='shop.html'">Keep Shoping</button>
                 <button class="btn secondary" id="clearCartBtn">Clear Cart</button>
             </div>
             <div class="right">
-                <lable><input type="checkbox" id="memberFlag"> Musum Member (15% off)</label>
+                <label><input type="checkbox" id="memberFlag"> Museum Member (15% off)</label>
                 <button class="btn secondary" id="resetDiscountPrefBtn" title="Choose discount again">Reset Discount Choice</button>
             </div>
         </div>
         
-        <table class="cart" aria-describedby="cartSummart">
+        <table class="cart" aria-describedby="cartSummary">
             <thead>
                 <tr>
                     <th scope="col">Item</th>
@@ -319,11 +319,12 @@ function renderCart() {
             <div class="row"><span>Shipping: </span><span class="num">${fmt(shipping)}</span></div>
             <div class="row"><span>Subtotal (Taxable): </span><span class="num">${fmt(taxableSubtotal)}</span></div>
             <div class="row"><span>Tax ${(TAX_RATE*100).toFixed(1)}%: </span><span class="num">${fmt(taxAmount)}</span></div>
-            <div class="row total"><span>Incoice Total: </span><span class="num">${fmt(invoiceTotal)}</span></div>
-        </div>`;
+            <div class="row total"><span>Invoice Total: </span><span class="num">${fmt(invoiceTotal)}</span></div>
+        </div>
+        `;
     document.getElementById('memberFlag').checked = memberChecked;
     document.getElementById('memberFlag').addEventListener('change', (z) => {
-        localStorage.setItem('museumMemberFlag', z.target.chacked ? '1' : '0');
+        localStorage.setItem('museumMemberFlag', z.target.checked ? '1' : '0');
         localStorage.removeItem(DISCOUNT_PREF);
         renderCart();
     });
