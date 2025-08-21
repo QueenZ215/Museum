@@ -327,7 +327,7 @@ function renderCart() {
         localStorage.removeItem(DISCOUNT_PREF);
         renderCart();
     });
-    document.getElementById('ckearCartBtn').addEventListener('click', () => {
+    document.getElementById('clearCartBtn').addEventListener('click', () => {
         if (confirm('Clear all items from cart?')) { writeCart([]); renderCart(); }
     });
 
